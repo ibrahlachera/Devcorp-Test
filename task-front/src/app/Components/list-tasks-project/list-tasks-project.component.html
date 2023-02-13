@@ -1,0 +1,223 @@
+<div class="row">
+    <h1 style="text-align: center;">List of Tasks</h1>
+    <a style="text-align: center;" routerLink="/list-project"> <i class="fa fa-backward" aria-hidden="true"></i> Get back to list of projects</a>
+    <button class="btn btn-success mt-4" style="width: 300px;margin-left: 20px;" data-bs-toggle="modal" data-bs-target="#addTaskModal" (click)="openAddModal()"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add task</button>
+    <button class="btn btn-danger mt-4" style="width: 300px;margin-left: 20px;" data-bs-toggle="modal" data-bs-target="#addMembersModal" (click)="openAddMemebersModal()"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add members</button>
+    <div class="container-fluid pt-3">
+    <div class="row flex-row flex-sm-nowrap py-3">
+        
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">To Do</h6>
+                    <div *ngFor="let task of tasks">
+                        <div class="card draggable shadow-sm mb-4" id="cd1" *ngIf="task.task_state == 'To-do'">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <h2 style="font-weight: 900;" href="" class="lead font-weight-light">{{task.task_title}}</h2>
+                                </div>
+                                <p>
+                                    {{task.task_description}}
+                                </p>
+                                <div class="card-footer">
+                                   <p>Affected to {{task.name}}</p>
+                                </div>
+                                <button class="align-self-end btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(task.task_id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                <button style="margin-left: 5px;" class="align-self-end btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalEdit(task.task_id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">In-progess</h6>
+                    <div *ngFor="let task of tasks">
+                        <div class="card draggable shadow-sm mb-4" id="cd1" *ngIf="task.task_state == 'Progress'">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <h2 style="font-weight: 900;" href="" class="lead font-weight-light">{{task.task_title}}</h2>
+                                </div>
+                                <p>
+                                    {{task.task_description}}
+                                </p>
+                                <div class="card-footer">
+                                   <p>Affected to {{task.name}}</p>
+                                </div>
+                                <button class="align-self-end btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(task.task_id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                <button style="margin-left: 5px;" class="align-self-end btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalEdit(task.task_id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Review</h6>
+                    <div *ngFor="let task of tasks">
+                        <div class="card draggable shadow-sm mb-4" id="cd1" *ngIf="task.task_state == 'Review'">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <h2 style="font-weight: 900;" href="" class="lead font-weight-light">{{task.task_title}}</h2>
+                                </div>
+                                <p>
+                                    {{task.task_description}}
+                                </p>
+                                <div class="card-footer">
+                                   <p>Affected to {{task.name}}</p>
+                                </div>
+                                <button class="align-self-end btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(task.task_id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                <button style="margin-left: 5px;" class="align-self-end btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalEdit(task.task_id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-uppercase text-truncate py-2">Complete</h6>
+                    <div *ngFor="let task of tasks">
+                        <div class="card draggable shadow-sm mb-4" id="cd1" *ngIf="task.task_state == 'Done'">
+                            <div class="card-body p-2">
+                                <div class="card-title">
+                                    <h2 style="font-weight: 900;" href="" class="lead font-weight-light">{{task.task_title}}</h2>
+                                </div>
+                                <p>
+                                    {{task.task_description}}
+                                </p>
+                                <div class="card-footer">
+                                   <p>Affected to {{task.name}}</p>
+                                </div>
+                                <button class="align-self-end btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(task.task_id)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                <button style="margin-left: 5px;" class="align-self-end btn btn-warning btn-sm ml-2" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalEdit(task.task_id)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{task.task_title}}</h5>
+        </div>
+        <div class="modal-body">
+          <p>
+            {{task.task_description}}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Adding Task</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input name="title" [(ngModel)]="task_add.task_title" type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea name="description" [(ngModel)]="task_add.task_description"  type="textarea" class="form-control"  rows="3" id="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <select name="state" [(ngModel)]="task_add.task_state" disabled  class="form-select" aria-label="Select State">
+                        <option value="To-do" selected>To do</option>
+                        <option value="Progress">In-Progress</option>
+                        <option value="Review">Review</option>
+                        <option value="Done">Done</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_id" class="form-label">Affected To</label>
+                    <select name="user_id" [(ngModel)]="task_add.user_id" class="form-select" aria-label="Select User">
+                        <option  *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+                      </select>
+                  </div>
+                <button type="submit" class="btn btn-primary"   data-bs-dismiss="modal" (click)="submitAdd()">Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Editing Task</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input name="title" [(ngModel)]="task_edit.task_title" type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea name="description" [(ngModel)]="task_edit.task_description" type="textarea" class="form-control"  rows="3" id="description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <select name="state" [(ngModel)]="task_edit.task_state" class="form-select" aria-label="Select State">
+                        <option value="To-do">To do</option>
+                        <option value="Progress">In-Progress</option>
+                        <option value="Review">Review</option>
+                        <option value="Done">Done</option>
+                      </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_id" class="form-label">Affected To</label>
+                    <select name="user_id" [(ngModel)]="task_edit.user_id" class="form-select" aria-label="Select User">
+                        <option  *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+                      </select>
+                  </div>
+                <button type="submit" class="btn btn-primary" (click)="submit()"  data-bs-dismiss="modal">Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addMembersModal" tabindex="-1" aria-labelledby="addMembersModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Adding Members</h3>
+        </div>
+        <div class="modal-body">
+            <form>
+                  <div class="mb-3">
+                    <label for="user_id" class="form-label">Select Members :</label>
+                    <select class="form-select" name="users" [(ngModel)]="new_members.users" multiple aria-label="multiple select example">
+                        <option *ngFor="let member of members" [value]="member.id" value="1">{{member.name}}</option>
+                      </select>
+                  </div>
+                <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal" (click)="submitAddMemebers()">Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>

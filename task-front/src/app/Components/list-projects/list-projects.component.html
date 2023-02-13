@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1>List of projects</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="c" *ngFor="let project of projects"  [routerLink]="['/projects/show', project.project_id]">
+            <input type="checkbox" id="faq-1">
+            <h1 class="project"><label for="faq-1">{{project.project_name}}</label></h1>
+          </div>
+    </div>
+</div>
+
+
+

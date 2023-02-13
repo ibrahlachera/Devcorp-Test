@@ -1,0 +1,13 @@
+Bonjour, 
+
+Vous trouverez ci-joint mon essai sur le test technique. 
+
+Ce test se compose de : 
+
+partie Back: task-app 
+partie Front: task-front
+
+Et aussi vous allez trouver un fichier SQL contenant des données qui pourront vous aider.
+
+Pour la partie de Dockerisation: J'ai un problème au niveau de ma machine car j'utilise Windows 11 et ça m'a pris plus de temps.
+
